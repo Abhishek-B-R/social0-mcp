@@ -4,7 +4,7 @@ Guidance for AI agents (and humans) using this MCP server.
 
 ## What this is
 
-- **Package:** `@social0/mcp-server` (local stdio process)
+- **Package:** `social0-mcp` (local stdio process)
 - **Auth:** `SOCIAL0_API_KEY` → `Authorization: Bearer …` on `https://api.social0.app/v1`
 - **Not included:** OAuth / connecting social accounts (user does that in the dashboard)
 
@@ -12,9 +12,8 @@ Guidance for AI agents (and humans) using this MCP server.
 
 1. User has Social0 account + connected platforms  
 2. API key created at https://social0.app/dashboard/api-keys (`sk_live_…`)  
-3. This repo: `npm install && npm run build`  
-4. Host config points at **absolute** `dist/index.js` with `SOCIAL0_API_KEY` in `env`  
-5. Verify with `list_accounts`
+3. Host config runs `npx -y social0-mcp` with `SOCIAL0_API_KEY` in `env` (see README)  
+4. Verify with `list_accounts`
 
 ## Tool reference
 
