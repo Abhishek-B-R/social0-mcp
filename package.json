@@ -11,7 +11,8 @@
     "dist",
     "README.md",
     "LICENSE",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "AGENTS.md"
   ],
   "scripts": {
     "dev": "tsx watch src/index.ts",
@@ -32,6 +33,15 @@
     "claude"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Abhishek-B-R/social0-mcp.git"
+  },
+  "homepage": "https://github.com/Abhishek-B-R/social0-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/Abhishek-B-R/social0-mcp/issues"
+  },
+  "mcpName": "io.github.Abhishek-B-R/social0-mcp",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",
     "dotenv": "^16.5.0",
