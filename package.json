@@ -1,7 +1,7 @@
 {
   "name": "social0-mcp",
-  "version": "0.2.0",
-  "description": "Official Model Context Protocol server for Social0 — manage social posts from AI assistants",
+  "version": "0.2.1",
+  "description": "Post to Instagram, TikTok, YouTube, X, LinkedIn, and more from Claude, Cursor, or ChatGPT",
   "type": "module",
   "main": "dist/index.js",
   "bin": {

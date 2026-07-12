@@ -2,6 +2,12 @@
 
 All notable changes to the Social0 MCP server are documented here.
 
+## [0.2.1] - 2026-07-12
+
+### Changed
+
+- README is install/config-first for general users; troubleshooting and local-dev moved to AGENTS.md
+
 ## [0.2.0] - 2026-07-12
 
 ### Changed

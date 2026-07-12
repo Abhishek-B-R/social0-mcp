@@ -230,3 +230,63 @@ Common:
 - Dashboard-only features not exposed on `/v1`
 
 Use https://api.social0.app/docs for full REST schemas.
+
+---
+
+## Troubleshooting (humans)
+
+### `SOCIAL0_API_KEY is required`
+
+Put the key in the MCP host `env` block and reload MCP.
+
+### Wrong key format
+
+Keys start with `sk_live_` (legacy `s0_live_` still works).
+
+### `401 Unauthorized`
+
+Key revoked or wrong — create a new key.
+
+### `npx` / command not found
+
+Install [Node.js 20+](https://nodejs.org/), then use `"command": "npx"` with `"args": ["-y", "social0-mcp"]`. Always include `-y` so the first run does not prompt.
+
+### No connected account / multiple accounts
+
+Connect platforms at https://social0.app/dashboard/connections. If several accounts share a platform, pass the account UUID from `list_accounts`.
+
+### Media upload failed / ENOENT
+
+Remote hosts cannot use sandbox paths. Use `upload_media` with public `url` or base64 `data` (+ `filename`). `file_path` only works on the machine running MCP.
+
+### One platform failed, others succeeded
+
+Expected for multi-platform jobs. Poll `get_publish_status` with the tracking ID.
+
+---
+
+## Local development
+
+```bash
+git clone https://github.com/Abhishek-B-R/social0-mcp.git
+cd social0-mcp
+npm install && npm run build
+```
+
+Point your host at the built file:
+
+```json
+{
+  "mcpServers": {
+    "social0": {
+      "command": "node",
+      "args": ["/absolute/path/to/social0-mcp/dist/index.js"],
+      "env": {
+        "SOCIAL0_API_KEY": "sk_live_your_key_here",
+        "SOCIAL0_MCP_VERBOSE": "true"
+      }
+    }
+  }
+}
+```
+
