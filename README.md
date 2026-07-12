@@ -139,9 +139,9 @@ Key revoked or wrong — create a new key and update your config.
 
 Connect platforms in the [dashboard](https://social0.app/dashboard/connections). If you have more than one account on a platform, tell the agent to use the account ID from “show my connected accounts.”
 
-### Host shows no tools
+### Media upload failed / ENOENT
 
-Run `npm run build`, confirm the absolute path to `dist/index.js`, then fully restart the host.
+Remote hosts cannot use local sandbox paths. Call `upload_media` with a public `url` or base64 `data` (+ `filename`). `file_path` only works for files on the machine running the MCP server.
 
 ### One platform failed, others succeeded
 
