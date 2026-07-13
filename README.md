@@ -2,25 +2,46 @@
 
 Post to **Instagram, TikTok, YouTube, X, LinkedIn, Facebook, Pinterest, Threads, and Bluesky** from Claude, Cursor, ChatGPT, and other AI apps — in plain English.
 
-[social0.app](https://social0.app) · [Get an API key](https://social0.app/dashboard/api-keys)
+[social0.app](https://social0.app) · [Docs](https://docs.social0.app/docs/integrations/mcp) · [Get an API key](https://social0.app/dashboard/api-keys)
 
 ---
 
-## Setup
+## Remote URL (recommended — no npx)
 
-### 1. Get an API key
+Works with **Claude.ai**, **ChatGPT**, and any AI that accepts a remote MCP connector.
 
-1. Sign up at [social0.app](https://social0.app)
-2. [Connect your social accounts](https://social0.app/dashboard/connections)
-3. Create a key at [Dashboard → API keys](https://social0.app/dashboard/api-keys)
+1. [Connect your social accounts](https://social0.app/dashboard/connections)
+2. Open **Connectors** / **MCP** settings in your AI app
+3. Add remote server URL:
 
-### 2. Paste this into your AI app
+```text
+https://mcp.social0.app/mcp
+```
 
-Replace `sk_live_your_key_here` with your key. You need [Node.js 20+](https://nodejs.org/) installed (one-time).
+4. Click **Connect** and approve Social0 (OAuth)
+5. Ask: “Show my connected Social0 accounts”
 
-#### Cursor
+No Node.js, no API key in config.
 
-**Settings → MCP**, or create `.cursor/mcp.json`:
+### Cursor (remote)
+
+```json
+{
+  "mcpServers": {
+    "social0": {
+      "url": "https://mcp.social0.app/mcp"
+    }
+  }
+}
+```
+
+If your Cursor build doesn’t support remote/OAuth MCP yet, use local npx below.
+
+---
+
+## Local npx (API key)
+
+Needs [Node.js 20+](https://nodejs.org/) and a `sk_live_` key from [API keys](https://social0.app/dashboard/api-keys).
 
 ```json
 {
@@ -36,68 +57,30 @@ Replace `sk_live_your_key_here` with your key. You need [Node.js 20+](https://no
 }
 ```
 
-Reload MCP / restart Cursor.
+| Host | Where |
+|------|--------|
+| Cursor | Settings → MCP / `.cursor/mcp.json` |
+| Claude Desktop | `~/Library/Application Support/Claude/claude_desktop_config.json` |
+| VS Code | Copilot MCP settings |
 
-#### Claude Desktop
+---
 
-Edit:
-
-- **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
-
-```json
-{
-  "mcpServers": {
-    "social0": {
-      "command": "npx",
-      "args": ["-y", "social0-mcp"],
-      "env": {
-        "SOCIAL0_API_KEY": "sk_live_your_key_here"
-      }
-    }
-  }
-}
-```
-
-Fully quit and reopen Claude Desktop.
-
-#### ChatGPT (Desktop)
-
-**Settings → Connectors / MCP** (wording varies):
-
-```json
-{
-  "name": "social0",
-  "command": "npx",
-  "args": ["-y", "social0-mcp"],
-  "env": {
-    "SOCIAL0_API_KEY": "sk_live_your_key_here"
-  }
-}
-```
-
-Save and restart ChatGPT if needed.
-
-#### VS Code / Windsurf / others
-
-Same idea — add an MCP server with:
-
-```json
-{
-  "command": "npx",
-  "args": ["-y", "social0-mcp"],
-  "env": {
-    "SOCIAL0_API_KEY": "sk_live_your_key_here"
-  }
-}
-```
-
-### 3. Try saying
+## Try saying
 
 - “Show my connected Social0 accounts”
 - “Post this to LinkedIn and X”
 - “Schedule this for tomorrow at 9am UTC on Instagram and TikTok”
 - “Upload this image from a URL and publish it everywhere”
+
+---
+
+## Hosted vs local
+
+| | Hosted | Local (`npx`) |
+|--|--------|----------------|
+| URL / command | `https://mcp.social0.app/mcp` | `npx -y social0-mcp` |
+| Auth | OAuth | `SOCIAL0_API_KEY` |
+| Media | `url` or `data` | `url`, `data`, or `file_path` |
 
 ---
 
@@ -109,13 +92,9 @@ Same idea — add an MCP server with:
 - Check per-platform publish status
 - Get suggestions for which platforms fit a caption
 
----
-
 ## Help
 
-Something not working? See [AGENTS.md](./AGENTS.md) (troubleshooting + full tool reference for developers).
-
-More: [Product docs](https://docs.social0.app/docs/integrations/mcp) · [social0.app](https://social0.app)
+[AGENTS.md](./AGENTS.md) · [Product docs](https://docs.social0.app/docs/integrations/mcp) · [social0.app/mcp](https://social0.app/mcp)
 
 ## License
 
