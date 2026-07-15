@@ -4,7 +4,7 @@ Guidance for AI agents (and humans) using this MCP server.
 
 ## What this is
 
-- **Package:** `social0-mcp` (local stdio process)
+- **Package:** `@social0/mcp` (local stdio process; unscoped `social0-mcp` is a deprecated alias)
 - **Auth:** `SOCIAL0_API_KEY` → `Authorization: Bearer …` on `https://api.social0.app/v1`
 - **Not included:** OAuth / connecting social accounts (user does that in the dashboard)
 
@@ -12,7 +12,7 @@ Guidance for AI agents (and humans) using this MCP server.
 
 1. User has Social0 account + connected platforms  
 2. API key created at https://social0.app/dashboard/api-keys (`sk_live_…`)  
-3. Host config runs `npx -y social0-mcp` with `SOCIAL0_API_KEY` in `env` (see README)  
+3. Host config runs `npx -y @social0/mcp` with `SOCIAL0_API_KEY` in `env` (see README)  
 4. Verify with `list_accounts`
 
 ## Tool reference
@@ -249,7 +249,7 @@ Key revoked or wrong — create a new key.
 
 ### `npx` / command not found
 
-Install [Node.js 20+](https://nodejs.org/), then use `"command": "npx"` with `"args": ["-y", "social0-mcp"]`. Always include `-y` so the first run does not prompt.
+Install [Node.js 20+](https://nodejs.org/), then use `"command": "npx"` with `"args": ["-y", "@social0/mcp"]`. Always include `-y` so the first run does not prompt.
 
 ### No connected account / multiple accounts
 
