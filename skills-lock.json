@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "social0": {
+      "source": "abhishek-b-r/social0-mcp",
+      "sourceType": "github",
+      "skillPath": "skills/social0/SKILL.md",
+      "computedHash": "b2ea502f2e3b209ce920d3ff8cc23ffc8a250604ab6b31e2f684daeade7caf76"
+    }
+  }
+}
