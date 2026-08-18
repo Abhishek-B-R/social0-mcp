@@ -16,6 +16,7 @@ All notable changes to the Social0 MCP server are documented here.
 
 - Skill / agent docs: prefer the `social0` CLI over MCP when a shell is available (ClawHub / OpenClaw skill, AGENTS.md, README)
 - Skill is mirrored in [social0-cli](https://github.com/Abhishek-B-R/social0-cli) so either public repo works for skill installs
+- Raised `@modelcontextprotocol/sdk` floor from `^1.12.1` to `^1.30.0` so scanners stop flagging patched CVEs (GHSA-345p-7cg4-v4c7, GHSA-8r9q-7v3j-jr4g, GHSA-w48q-cv73-mx4w)
 
 ## [0.3.0] - 2026-07-15
 
