@@ -2,6 +2,28 @@
 
 All notable changes to the Social0 MCP server are documented here.
 
+## [0.5.0] - 2026-09-04
+
+### Added
+
+- Analytics tools: `get_analytics` (window totals, per-platform breakdown, daily series, top posts) and `get_post_analytics` (one post, per network)
+- Inbox tools: `list_inbox_comments`, `reply_to_comment`, `moderate_comment` (like / unlike / hide), `list_inbox_dms`, `get_inbox_dm_thread`, `reply_to_dm`
+- Tool results carry a `Notes:` block for sampled / partial reads, reconnect hints, unsupported networks, and platform errors so hosts can repeat the caveats
+- `account` parameters accept a connected-account UUID or an unambiguous platform name
+
+### Changed
+
+- Raised `@modelcontextprotocol/sdk` floor from `^1.12.1` to `^1.30.0` so scanners stop flagging patched CVEs
+- `social0://docs/when-to-use` and `social0://docs/onboarding` describe the analytics and inbox surface and the `analytics:read` / `inbox:read` / `inbox:write` scopes
+- Server version reported as `0.5.0`
+- `list_inbox_comments` / `list_inbox_dms` follow `next_before` once when a page is empty but `has_more` is true, and otherwise say `0 … on this page` with the cursor so a model neither stops early nor loops
+- A `429` tool error names the `Retry-After` wait and tells the model not to retry in a loop
+
+### Security
+
+- Comment and DM text is scrubbed of hidden code points and returned inside `<untrusted-social-text>` tags with a leading notice, so text written by strangers is data to show, not instructions to follow
+- Every tool carries MCP annotations (`readOnlyHint`, `destructiveHint`, `openWorldHint`) so hosts can put a confirmation boundary in front of publish, reply, and moderation tools
+
 ## [0.4.0] - 2026-07-21
 
 ### Changed
@@ -16,7 +38,6 @@ All notable changes to the Social0 MCP server are documented here.
 
 - Skill / agent docs: prefer the `social0` CLI over MCP when a shell is available (ClawHub / OpenClaw skill, AGENTS.md, README)
 - Skill is mirrored in [social0-cli](https://github.com/Abhishek-B-R/social0-cli) so either public repo works for skill installs
-- Raised `@modelcontextprotocol/sdk` floor from `^1.12.1` to `^1.30.0` so scanners stop flagging patched CVEs (GHSA-345p-7cg4-v4c7, GHSA-8r9q-7v3j-jr4g, GHSA-w48q-cv73-mx4w)
 
 ## [0.3.0] - 2026-07-15
 

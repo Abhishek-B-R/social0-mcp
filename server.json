@@ -8,24 +8,28 @@
     {
       "src": "https://social0.app/logo.png",
       "mimeType": "image/png",
-      "sizes": ["any"]
+      "sizes": [
+        "any"
+      ]
     }
   ],
   "repository": {
     "url": "https://github.com/Abhishek-B-R/social0-mcp",
     "source": "github"
   },
-  "version": "0.4.1",
+  "version": "0.5.0",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "@social0/mcp",
-      "version": "0.4.1",
-      "transport": { "type": "stdio" },
+      "version": "0.5.0",
+      "transport": {
+        "type": "stdio"
+      },
       "environmentVariables": [
         {
           "name": "SOCIAL0_API_KEY",
-          "description": "Your Social0 API key (sk_live_…)",
+          "description": "Your Social0 API key (sk_live_\u2026)",
           "isRequired": true,
           "isSecret": true,
           "format": "string"

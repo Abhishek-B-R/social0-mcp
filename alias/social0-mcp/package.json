@@ -1,7 +1,7 @@
 {
   "name": "social0-mcp",
-  "version": "0.4.1",
-  "description": "Deprecated alias for @social0/mcp — prefer `npx -y @social0/mcp`",
+  "version": "0.5.0",
+  "description": "Deprecated alias for @social0/mcp \u2014 prefer `npx -y @social0/mcp`",
   "type": "module",
   "bin": {
     "social0-mcp": "bin.mjs"
@@ -29,7 +29,7 @@
     "url": "https://github.com/Abhishek-B-R/social0-mcp/issues"
   },
   "dependencies": {
-    "@social0/mcp": "0.4.1"
+    "@social0/mcp": "0.5.0"
   },
   "deprecated": "Package renamed to @social0/mcp. Use: npx -y @social0/mcp"
 }
